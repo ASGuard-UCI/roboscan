@@ -1,0 +1,11 @@
+[Unit]
+After=network.target
+Description=Use Python scapy to log traffic to port 11311 to a PCAP file
+
+[Service]
+ExecStart=/root/ros-honeypot/.venv/bin/python3 /root/ros-honeypot/main.py
+Restart=on-failure
+RestartSec=1s
+
+[Install]
+WantedBy=multi-user.target

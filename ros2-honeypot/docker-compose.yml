@@ -1,0 +1,22 @@
+services:
+  talker:
+    build:
+      context: .
+      dockerfile: talker.Dockerfile
+    command: ros2 run demo_nodes_cpp talker
+    ports:
+      - target: 7400
+        published: 7400
+        protocol: udp
+        mode: host
+
+  listener:
+    build:
+      context: .
+      dockerfile: listener.Dockerfile
+    command: ros2 run demo_nodes_cpp listener
+    ports:
+      - target: 7401
+        published: 7401
+        protocol: udp
+        mode: host

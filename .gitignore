@@ -1,0 +1,11 @@
+data/
+.venv/
+
+.env
+output.log
+
+abuseIPDB_cache.sqlite
+
+__pycache__
+
+.mypy_cache
