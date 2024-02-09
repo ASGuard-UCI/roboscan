@@ -100,7 +100,7 @@ def ping_honeypots(username, password):
     )
 
     with concurrent.futures.ThreadPoolExecutor(
-        max_workers=len(HONEYPOT_IPS)
+        max_workers=10
     ) as executor:
         futures = []
         for honeypot, private_ip in HONEYPOT_IPS.items():
