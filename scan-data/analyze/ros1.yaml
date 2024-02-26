@@ -122,7 +122,37 @@
   matchtype: regex
   pattern: cartographer
   labels:
-    functionalities: SLAM
+    functionalities: mapping
+
+- field: hostname
+  matchtype: regex
+  pattern: nuvo
+  labels:
+    functionalities: nuvo
+
+- field: topic type
+  matchtype: regex
+  pattern: can_msgs
+  labels:
+    functionalities: can bus
+
+- field: topic type
+  matchtype: regex
+  pattern: VehicleCAN
+  labels:
+    functionalities: can bus
+
+- field: topic name
+  matchtype: regex
+  pattern: VehicleCAN
+  labels:
+    functionalities: can bus
+
+- field: topic name
+  matchtype: regex
+  pattern: vehicle_can
+  labels:
+    functionalities: can bus
 
 
 ##### Simulators #####
@@ -196,12 +226,6 @@
   labels:
     robot type: tinalinux
 
-- field: hostname
-  matchtype: regex
-  pattern: nuvo
-  labels:
-    robot type: nuvo
-
 - field: node name
   matchtype: regex
   pattern: clean
@@ -219,30 +243,6 @@
   pattern: ilife
   labels:
     robot type: ilife
-
-- field: topic type
-  matchtype: regex
-  pattern: can_msgs
-  labels:
-    robot type: vehicle
-
-- field: topic type
-  matchtype: regex
-  pattern: VehicleCAN
-  labels:
-    robot type: vehicle
-
-- field: topic name
-  matchtype: regex
-  pattern: VehicleCAN
-  labels:
-    robot type: vehicle
-
-- field: topic name
-  matchtype: regex
-  pattern: vehicle_can
-  labels:
-    robot type: vehicle
 
 
 ##### Libraries #####
