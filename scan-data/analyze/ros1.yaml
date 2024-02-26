@@ -1,0 +1,254 @@
+---
+
+# Rule definition:
+#   field: [topic name, service name, param name, hostname, topic type, etc.]
+#   matchtype: [full, regex, etc.]
+#   pattern: string (or other if neccessary)
+#   labels:
+#       a list of (key, value)
+#       e.g., (robot type, autonomous driving / cleaning robot)
+#             (sensor, lidar)
+#             (actuator, movable)
+#             (simulation, physical / gazebo)
+#             (library, moveit)
+
+##### Sensors #####
+
+- field: topic name
+  matchtype: regex
+  pattern: lidar|hlds|velodyne|laser
+  labels:
+    sensor: lidar
+
+- field: topic type
+  matchtype: regex
+  pattern: pointcloud|laserscan|velodyne_msgs
+  labels:
+    sensor: lidar
+
+- field: topic name
+  matchtype: regex
+  pattern: camera
+  labels:
+    sensor: camera
+
+- field: topic type
+  matchtype: regex
+  pattern: sensor_msgs/(compressedimage|image|camerainfo)
+  labels:
+    sensor: camera
+
+- field: topic name
+  matchtype: regex
+  pattern: radar
+  labels:
+    sensor: radar
+
+- field: topic name
+  matchtype: regex
+  pattern: imu
+  labels:
+    sensor: imu
+
+- field: topic type
+  matchtype: regex
+  pattern: sensor_msgs/imu
+  labels:
+    sensor: imu
+
+- field: topic name
+  matchtype: regex
+  pattern: odom
+  labels:
+    sensor: odometry
+
+- field: topic type
+  matchtype: regex
+  pattern: sensor_msgs/(magneticfield)
+  labels:
+    sensor: compass
+
+- field: topic name
+  matchtype: regex
+  pattern: gyro
+  labels:
+    sensor: gyro
+
+- field: topic type
+  matchtype: regex
+  pattern: realsense2_camera
+  labels:
+    sensor: realsense
+
+- field: topic name
+  matchtype: regex
+  pattern: gps
+  labels:
+    sensor: gps
+
+- field: topic type
+  matchtype: regex
+  pattern: gps
+  labels:
+    sensor: gps
+
+##### Functionalities #####
+
+- field: topic name
+  matchtype: regex
+  pattern: (^/cmd_vel$)|move_base
+  labels:
+    functionalities: movable
+
+- field: topic name
+  matchtype: regex
+  pattern: trafficsign|trafficlight|trafficsignal
+  labels:
+    functionalities: traffic sign/light
+
+- field: topic name
+  matchtype: regex
+  pattern: /navigation
+  labels:
+    functionalities: navigation
+
+- field: node name
+  matchtype: regex
+  pattern: /mapgen
+  labels:
+    functionalities: mapping
+
+- field: node name
+  matchtype: regex
+  pattern: cartographer
+  labels:
+    functionalities: SLAM
+
+
+##### Simulators #####
+
+- field: topic name
+  matchtype: regex
+  pattern: gazebo
+  labels:
+    simulator: gazebo
+
+- field: service name
+  matchtype: regex
+  pattern: gazebo
+  labels:
+    simulator: gazebo
+
+- field: node name
+  matchtype: regex
+  pattern: record_\d\+
+  labels:
+    simulator: playback
+
+- field: service name
+  matchtype: regex
+  pattern: playback
+  labels:
+    simulator: playback
+
+- field: param name
+  matchtype: regex
+  pattern: use_sim_time
+  labels:
+    simulator: simtime
+
+
+##### Robot Types #####
+
+- field: node name
+  matchtype: regex
+  pattern: talker|listener|chatter|turtlesim
+  labels:
+    robot type: tutorial
+
+- field: topic type
+  matchtype: regex
+  pattern: turtlesim
+  labels:
+    robot type: tutorial
+
+- field: topic type
+  matchtype: regex
+  pattern: quadrotor|mavros
+  labels:
+    robot type: drone
+
+- field: topic name
+  matchtype: regex
+  pattern: quadrotor|mavros
+  labels:
+    robot type: drone
+
+- field: hostname
+  matchtype: regex
+  pattern: rockchip
+  labels:
+    robot type: rockchip
+
+- field: hostname
+  matchtype: regex
+  pattern: tinalinux
+  labels:
+    robot type: tinalinux
+
+- field: hostname
+  matchtype: regex
+  pattern: nuvo
+  labels:
+    robot type: nuvo
+
+- field: node name
+  matchtype: regex
+  pattern: ^/clean_the_room|/clean_the_area$
+  labels:
+    robot type: cleaning robot
+
+- field: hostname
+  matchtype: regex
+  pattern: ilife
+  labels:
+    robot type: ilife
+
+- field: topic type
+  matchtype: regex
+  pattern: can_msgs
+  labels:
+    robot type: vehicle
+
+
+##### Libraries #####
+
+- field: node name
+  matchtype: regex
+  pattern: rqt_gui|rviz
+  labels:
+    library: rviz
+
+- field: topic type
+  matchtype: regex
+  pattern: mavros
+  labels:
+    library: mavros
+
+- field: topic type
+  matchtype: regex
+  pattern: darknet_ros
+  labels:
+    library: darknet_ros
+
+- field: hostname
+  matchtype: regex
+  pattern: rms-core
+  labels:
+    library: rms
+
+- field: node name
+  matchtype: regex
+  pattern: rosbridge_websocket
+  labels:
+    library: rosbridge

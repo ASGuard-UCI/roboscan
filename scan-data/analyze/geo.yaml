@@ -1,0 +1,38 @@
+---
+
+# Rule definition:
+#   field: [asn, asn-name]
+#   matchtype: [full, regex, etc.]
+#   pattern: string (or other if neccessary)
+#   labels: a list of ("geo", value), values are from <university, cloud,
+#           telecom, etc.>
+
+- field: asn-name
+  matchtype: regex
+  pattern: university|education|purdue|(^UTAH$)|claremont|ucsb|ucinet|research|va-tech
+  labels:
+    geo: research
+
+- field: asn
+  matchtype: regex
+  pattern: (^10326$)|(^25$)|(^1653$)|(^87$)|(^2547$)|(^31$)|(^4385$)|(^11105$)|(^1161$)|(^1741$)|(^137$)
+  labels:
+    geo: research
+
+- field: asn-name
+  matchtype: regex
+  pattern: tele|att-internet|broadband|chinanet|unicom|dacom|mobile|communication
+  labels:
+    geo: telecom
+
+- field: asn
+  matchtype: regex
+  pattern: (^3462$)|(^17858$)|(^719$)|(^3301$)|(^131602$)|(^138384$)|(^8473$)|(^9416$)|(^17924$)|(^29518$)|(^13189$)|(^4780$)|(^6167$)|(^4847$)
+  labels:
+    geo: telecom
+
+- field: asn-name
+  matchtype: regex
+  pattern: amazon|digitalocean|cloud|contabo|(smart ape)|hosting|netcup|microsoft|tencent|alibaba|oracle|paperspace|choopa|(glh netsolutions)|(pars parva)
+  labels:
+    geo: cloud
