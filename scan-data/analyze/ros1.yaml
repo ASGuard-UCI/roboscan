@@ -204,7 +204,13 @@
 
 - field: node name
   matchtype: regex
-  pattern: ^/clean_the_room|/clean_the_area$
+  pattern: clean
+  labels:
+    robot type: cleaning robot
+
+- field: topic name
+  matchtype: regex
+  pattern: clean
   labels:
     robot type: cleaning robot
 
@@ -217,6 +223,24 @@
 - field: topic type
   matchtype: regex
   pattern: can_msgs
+  labels:
+    robot type: vehicle
+
+- field: topic type
+  matchtype: regex
+  pattern: VehicleCAN
+  labels:
+    robot type: vehicle
+
+- field: topic name
+  matchtype: regex
+  pattern: VehicleCAN
+  labels:
+    robot type: vehicle
+
+- field: topic name
+  matchtype: regex
+  pattern: vehicle_can
   labels:
     robot type: vehicle
 
