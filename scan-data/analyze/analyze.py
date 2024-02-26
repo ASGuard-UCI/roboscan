@@ -79,7 +79,7 @@ class Host:
 
     def _topic(self, topic_str: str):
         # http://wiki.ros.org/ROS/Concepts#Names.Valid_Names
-        m = re.match("^/?([A-z][A-z0-9_/]*)\(Type: (\S+)\)$", topic_str)
+        m = re.match("^\/?([A-z0-9_/]*)\(Type: (\S+)\)$", topic_str)
         if m:
             topic, _type = m.groups()
             return "/" + topic, _type
@@ -208,7 +208,7 @@ def main():
     ruleMatch = RuleMatch()
     geoloc = GeoLoc()
 
-    for filename in ["09252023.json", "20231025-1615.json"]:
+    for filename in ["09252023.json", "20231025-1615.json", "20231128-1244.json"]:
         #  filename = "20231025-1615.json"
         infile = os.path.join(script_path, "..", filename)
         insuccessfile = os.path.join(script_path, "..", "success" + filename)
@@ -252,4 +252,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    print("Complete")
 
